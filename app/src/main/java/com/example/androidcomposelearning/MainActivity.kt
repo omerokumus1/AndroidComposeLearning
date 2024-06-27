@@ -15,6 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableIntState
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -45,7 +46,9 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun CaptainGame() {
     println("Composing Captain Game")
+
     val treasuresFound = remember { mutableIntStateOf(0) }
+
     val direction = remember { mutableStateOf("North") }
     Column(
         modifier = Modifier
@@ -58,7 +61,8 @@ fun CaptainGame() {
         Spacer(modifier = Modifier.height(16.dp))
         Text(text = "This is a game where you are the captain of a ship and you have to make decisions to keep your crew alive.")
 
-        TreasuresFoundText(treasuresFound)
+        Text(text = "Tresures Found: $treasuresFound")
+
         DirectionText(direction)
 
         Spacer(modifier = Modifier.height(16.dp))
